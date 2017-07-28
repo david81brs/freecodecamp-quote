@@ -29,10 +29,13 @@ $(document).ready(function(){
         $("#quotebox").html('<h3>\"'+dbquotes[rdmy].frase + '\"</h3>'+ "<h4> - " + dbquotes[rdmy].autor+"</h4><br>");
         $("#sendy").on("click", function(){
             rdmy = Math.floor((Math.random() * dbquotes.length));
-            $("#quotebox").fadeOut()
+            $("#quotebox")
             .html('<h3>\"'+dbquotes[rdmy].frase + '\"</h3>'+ "<h4 - >" + dbquotes[rdmy].autor+"</h4><br>")
             .delay("fast")
             .fadeIn();
         });
+		$("#tweeter").on("click", function(){
+			window.open('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='+encodeURIComponent(dbquotes[rdmy].frase + " - " + dbquotes[rdmy].autor),'_blank');
+		});
 
 });
